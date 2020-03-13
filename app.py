@@ -7,5 +7,14 @@ y = music_data["genre"]
 
 model = DecisionTreeClassifier()
 model.fit(X , y)
-prediction = model.predict([[26,0]])[0]
-print(prediction)
+
+age = input("What is your age? ")
+gender = input("What is your gender? ")
+
+if gender == "Male":
+    gender = 1
+elif gender == "Female":
+    gender = 0
+
+prediction = model.predict([[age,gender]])[0]
+print("We recommend " + prediction)
